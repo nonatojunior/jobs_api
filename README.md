@@ -5,3 +5,5 @@
   > `npm i -D typescript ts-node-dev @types/express sequelize-cli`
 #### instala dependências do projeto
   > `npm i express sequelize pg dotenv`
+#### cria arquivo de configuração do TypeScript
+  > `npx tsc --init`
