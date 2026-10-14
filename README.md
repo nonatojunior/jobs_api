@@ -15,6 +15,10 @@
   > `npx sequelize-cli migration:generate --name create-candidates-table`
 #### executa migration
   > `npx sequelize-cli db:migrate`
+#### cria seed
+  > `npx sequelize-cli seed:generate --name create-candidates-seed`
+#### executa seed
+  > `npx sequelize-cli db:seed:all`
 
 ## Comandos Extras
 #### altera versão do TypeScritp
