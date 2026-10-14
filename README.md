@@ -11,5 +11,10 @@
   > `npm run dev`
 
 ## Comandos Extras
-#### comando utilizado para alterar a versão do TypeScritp
+#### altera versão do TypeScritp
   > `npm install -D typescript@5.8.3`
+
+## Extensão REST Client
+Este projeto está compatível para utilização da extensão REST Client, disponível no VSCode.
+
+Utilize o arquivo **requests.http** incluso no projeto para testar e executar as chamadas da API de forma prática.
