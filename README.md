@@ -11,6 +11,10 @@
   > `npm run dev`
 #### cria banco de dados
   > `npx sequelize-cli db:create`
+#### cria migration
+  > `npx sequelize-cli migration:generate --name create-candidates-table`
+#### executa migration
+  > `npx sequelize-cli db:migrate`
 
 ## Comandos Extras
 #### altera versão do TypeScritp
