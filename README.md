@@ -9,6 +9,8 @@
   > `npx tsc --init`
 #### inicia aplicação
   > `npm run dev`
+#### cria banco de dados
+  > `npx sequelize-cli db:create`
 
 ## Comandos Extras
 #### altera versão do TypeScritp
