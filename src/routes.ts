@@ -1,13 +1,10 @@
 import express from 'express'
-import { Candidate } from './models/candidate'
+import { candidatesController } from './controllers/candidates-controller'
 
 const router = express.Router()
 
 router.get('/', (req, res) => res.json({ hello: 'Hello, world!' }))
 
-router.get('/candidates', async (req, res) => {
-  const candidates = await Candidate.findAll()
-  return res.json(candidates)
-})
+router.get('/candidates', candidatesController.index)
 
 export { router }
