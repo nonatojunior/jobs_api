@@ -1,5 +1,21 @@
 # teste hello world
 GET http://localhost:3000/ HTTP/1.1
 
+###
+
 # lista todos candidatos
 GET http://localhost:3000/candidates HTTP/1.1
+
+###
+
+# cria um candidato
+POST http://localhost:3000/candidates HTTP/1.1
+content-type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@email.com",
+  "phone": "123456789",
+  "bio": "Experienced software developer.",
+  "openToWork": true
+}
