@@ -76,6 +76,26 @@ export const candidatesController = {
         return res.status(400).json({ message: error.message })
       }
     }
+  },
+
+  destroy: async (req: Request, res: Response) => {
+    const { id } = req.params
+
+    try {
+      const candidate = await Candidate.findByPk(Number(id))
+
+      if (candidate === null) {
+        return res.status(404).json({ message: 'candidadto não encontrado' })
+      }
+
+      await candidate.destroy()
+
+      return res.status(204).send()
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).json({ message: error.message })
+      }
+    }
   }
 
 }

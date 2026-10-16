@@ -9,5 +9,6 @@ router.get('/candidates', candidatesController.index)
 router.post('/candidates', candidatesController.create)
 router.put('/candidates/:id', candidatesController.update)
 router.get('/candidates/:id', candidatesController.show)
+router.delete('/candidates/:id', candidatesController.destroy)
 
 export { router }

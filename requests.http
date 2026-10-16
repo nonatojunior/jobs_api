@@ -36,3 +36,8 @@ content-type: application/json
 
 # visualizar um candidato
 GET http://localhost:3000/candidates/6 HTTP/1.1
+
+###
+
+# deletar um candidato
+DELETE http://localhost:3000/candidates/7 HTTP/1.1
