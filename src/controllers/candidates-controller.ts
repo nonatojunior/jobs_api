@@ -58,6 +58,24 @@ export const candidatesController = {
         return res.status(400).json({ message: error.message })
       }
     }
+  },
+
+  show: async (req: Request, res: Response) => {
+    const { id } = req.params
+
+    try {
+      const candidate = await Candidate.findByPk(Number(id))
+
+      if (candidate === null) {
+        return res.status(404).json({ message: 'candidadto não encontrado' })
+      }
+
+      return res.status(200).json(candidate)
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).json({ message: error.message })
+      }
+    }
   }
 
 }

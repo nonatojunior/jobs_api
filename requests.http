@@ -31,3 +31,8 @@ content-type: application/json
   "email": "mary@email.com",
   "phone": "987654321"
 }
+
+###
+
+# visualizar um candidato
+GET http://localhost:3000/candidates/6 HTTP/1.1
