@@ -3,12 +3,12 @@ GET http://localhost:3000/ HTTP/1.1
 
 ###
 
-# lista todos candidatos
+# listar todos candidatos
 GET http://localhost:3000/candidates HTTP/1.1
 
 ###
 
-# cria um candidato
+# criar um candidato
 POST http://localhost:3000/candidates HTTP/1.1
 content-type: application/json
 
@@ -22,7 +22,7 @@ content-type: application/json
 
 ###
 
-# atualiza um candidato
+# atualizar um candidato
 PUT http://localhost:3000/candidates/4 HTTP/1.1
 content-type: application/json
 
@@ -44,12 +44,12 @@ DELETE http://localhost:3000/candidates/7 HTTP/1.1
 
 ###
 
-# lista todas empresas
+# listar todas empresas
 GET http://localhost:3000/companies HTTP/1.1
 
 ###
 
-# cria uma empresa
+# criar uma empresa
 POST http://localhost:3000/companies HTTP/1.1
 content-type: application/json
 
@@ -62,7 +62,7 @@ content-type: application/json
 
 ###
 
-# atualiza uma empresa
+# atualizar uma empresa
 PUT http://localhost:3000/companies/4 HTTP/1.1
 content-type: application/json
 
