@@ -14,5 +14,6 @@ router.delete('/candidates/:id', candidatesController.destroy)
 
 router.get('/companies', companiesController.index)
 router.post('/companies', companiesController.create)
+router.put('/companies/:id', companiesController.update)
 
 export { router }

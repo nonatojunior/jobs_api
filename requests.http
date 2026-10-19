@@ -59,3 +59,14 @@ content-type: application/json
   "bio": "Company software.",
   "website": "www.localhost.com"
 }
+
+###
+
+# atualiza uma empresa
+PUT http://localhost:3000/companies/4 HTTP/1.1
+content-type: application/json
+
+{
+  "name": "JR Code 2026",
+  "email": "jr_code_2026@email.com"
+}
