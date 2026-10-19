@@ -78,5 +78,26 @@ export const companiesController = {
       }
     }
   },
+  
+  destroy: async (req: Request, res: Response) => {
+    const { id } = req.params
+
+    try {
+      const company = await Company.findByPk(Number(id))
+
+      if (company == null) {
+        return res.status(404).json({ message: 'empresa não encontrada' })
+      }
+      
+      company.destroy()
+
+      return res.status(204).send()
+
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).json({ message: error.message })
+      }
+    }
+  }
 
 }
