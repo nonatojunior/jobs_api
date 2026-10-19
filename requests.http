@@ -46,3 +46,16 @@ DELETE http://localhost:3000/candidates/7 HTTP/1.1
 
 # lista todas empresas
 GET http://localhost:3000/companies HTTP/1.1
+
+###
+
+# cria uma empresa
+POST http://localhost:3000/companies HTTP/1.1
+content-type: application/json
+
+{
+  "name": "JR Code",
+  "email": "jr@email.com",
+  "bio": "Company software.",
+  "website": "www.localhost.com"
+}
