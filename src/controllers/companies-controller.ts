@@ -30,29 +30,24 @@ export const companiesController = {
         return res.status(400).json({ message: error.message })
       }
     }
-  }
-
-  ,
+  },
 
   update: async (req: Request, res: Response) => {
     const { name, email, bio, website } = req.body
     const { id } = req.params
 
     try {
-      const company = await Company.findByPk(Number(id))
+      const [affectedRows, companies] = await Company.update({
+        name,
+        email,
+        bio,
+        website
+      }, {
+        where: { id },
+        returning: true
+      })
 
-      if (company === null) {
-        return res.status(404).json({ message: 'empresa não encontrada' })
-      }
-
-      company.name = name
-      company.email = email
-      company.bio = bio
-      company.website = website
-
-      await company.save()
-
-      return res.status(200).json(company)
+      return res.status(200).json(companies[0])
     } catch (error) {
       if (error instanceof Error) {
         return res.status(400).json({ message: error.message })
@@ -83,13 +78,7 @@ export const companiesController = {
     const { id } = req.params
 
     try {
-      const company = await Company.findByPk(Number(id))
-
-      if (company == null) {
-        return res.status(404).json({ message: 'empresa não encontrada' })
-      }
-      
-      company.destroy()
+      await Company.destroy({where: { id } })
 
       return res.status(204).send()
 
