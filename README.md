@@ -19,6 +19,8 @@
   > `npx sequelize-cli seed:generate --name create-candidates-seed`
 #### executa seed
   > `npx sequelize-cli db:seed:all`
+#### executa seed específico
+  > `npx sequelize-cli db:seed --seed src/database/seeders/20261019201611-create-companies-seed.js`
 
 ## Comandos Extras
 #### altera versão do TypeScritp
