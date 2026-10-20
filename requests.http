@@ -85,3 +85,16 @@ DELETE http://localhost:3000/companies/6 HTTP/1.1
 
 # listar todos trabalhos
 GET http://localhost:3000/jobs HTTP/1.1
+
+###
+
+# criar um trabalho
+POST http://localhost:3000/jobs HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Developer",
+  "description": "Developer FullStack Senio",
+  "limitDate": "12-12-2026",
+  "companyId": 4
+}
