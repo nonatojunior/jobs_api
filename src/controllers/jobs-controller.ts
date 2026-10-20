@@ -60,7 +60,7 @@ export const jobsController = {
     const { id } = req.params
 
     try {
-      const job = await Job.findByPk(Number(id))
+      const job = await Job.findByPk(Number(id), { include: 'company' })
 
       if (job == null) {
         return res.status(404).json({ message: 'trabalho não encontrado' })
