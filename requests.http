@@ -116,3 +116,8 @@ content-type: application/json
 
 # visualizar um trabalho
 GET http://localhost:3000/jobs/5 HTTP/1.1
+
+###
+
+# visualizar um trabalho
+DELETE http://localhost:3000/jobs/5 HTTP/1.1
