@@ -98,3 +98,16 @@ content-type: application/json
   "limitDate": "12-12-2026",
   "companyId": 4
 }
+
+###
+
+# atualizar um trabalho
+PUT http://localhost:3000/jobs/5 HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Developer",
+  "description": "Developer FullStack Pleno",
+  "limitDate": "12-24-2026",
+  "companyId": 4
+}

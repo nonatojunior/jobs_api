@@ -31,6 +31,29 @@ export const jobsController = {
         return res.status(400).json({ message: error.message })
       }
     }
+  },
+
+  update: async (req: Request, res: Response) => {
+    const { title, description, limitDate, companyId } = req.body
+    const { id } = req.params
+
+    try {
+      const [affectedRows, jobs] = await Job.update({
+        title,
+        description,
+        limitDate,
+        companyId
+      }, {
+        where: { id },
+        returning: true
+      })
+
+      return res.status(200).json(jobs[0])
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).json({ message: error.message })
+      }
+    }
   }
 
 }
