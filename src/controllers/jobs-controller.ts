@@ -5,7 +5,7 @@ export const jobsController = {
 
   index: async (req: Request, res: Response) => {
     try {
-      const jobs = await Job.findAll({ include: 'company' })
+      const jobs = await Job.findAll({ include: ['company', 'candidates'] })
       return res.json(jobs)
     } catch (error) {
       if (error instanceof Error) {
@@ -60,13 +60,14 @@ export const jobsController = {
     const { id } = req.params
 
     try {
-      const job = await Job.findByPk(Number(id), { include: 'company' })
+      const job = await Job.findByPk(Number(id), { include: ['company', 'candidates'] })
+      const candidatesCount = await job?.countCandidates()
 
       if (job == null) {
         return res.status(404).json({ message: 'trabalho não encontrado' })
       }
 
-      return res.status(200).json(job)
+      return res.status(200).json({...job?.get(), candidatesCount})
     } catch (error) {
       if (error instanceof Error) {
         return res.status(400).json({ message: error.message })
@@ -79,6 +80,48 @@ export const jobsController = {
 
     try {
       await Job.destroy({where: { id } })
+
+      return res.status(204).send()
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).json({ message: error.message })
+      }
+    }
+  },
+
+  addCandidate: async (req: Request, res: Response) => {
+    const jobId = req.params.id
+    const { candidateId } = req.body
+
+    try {
+      const job = await Job.findByPk(Number(jobId))
+
+      if (job == null) {
+        return res.status(404).json({ message: 'trabalho não encontrado' })
+      }
+
+      await job.addCandidate(candidateId)
+
+      return res.status(201).send()
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).json({ message: error.message })
+      }
+    }
+  },
+
+  removeCandidate: async (req: Request, res: Response) => {
+    const jobId = req.params.id
+    const { candidateId } = req.body
+
+    try {
+      const job = await Job.findByPk(Number(jobId))
+
+      if (job == null) {
+        return res.status(404).json({ message: 'trabalho não encontrado' })
+      }
+
+      await job.removeCandidate(candidateId)
 
       return res.status(204).send()
     } catch (error) {

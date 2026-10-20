@@ -115,9 +115,29 @@ content-type: application/json
 ###
 
 # visualizar um trabalho
-GET http://localhost:3000/jobs/5 HTTP/1.1
+GET http://localhost:3000/jobs/4 HTTP/1.1
 
 ###
 
-# visualizar um trabalho
+# deletar um trabalho
 DELETE http://localhost:3000/jobs/5 HTTP/1.1
+
+###
+
+# adicionar um candidato a um trabalho
+POST http://localhost:3000/jobs/4/addCandidate HTTP/1.1
+content-type: application/json
+
+{
+  "candidateId": 1
+}
+
+###
+
+# remover um candidato de um trabalho
+POST http://localhost:3000/jobs/4/removeCandidate HTTP/1.1
+content-type: application/json
+
+{
+  "candidateId": 1
+}

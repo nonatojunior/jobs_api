@@ -25,4 +25,7 @@ router.put('/jobs/:id', jobsController.update)
 router.get('/jobs/:id', jobsController.show)
 router.delete('/jobs/:id', jobsController.destroy)
 
+router.post('/jobs/:id/addCandidate', jobsController.addCandidate)
+router.post('/jobs/:id/removeCandidate', jobsController.removeCandidate)
+
 export { router }
