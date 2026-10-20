@@ -54,6 +54,24 @@ export const jobsController = {
         return res.status(400).json({ message: error.message })
       }
     }
+  },
+
+  show: async (req: Request, res: Response) => {
+    const { id } = req.params
+
+    try {
+      const job = await Job.findByPk(Number(id))
+
+      if (job == null) {
+        return res.status(404).json({ message: 'trabalho não encontrado' })
+      }
+
+      return res.status(200).json(job)
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).json({ message: error.message })
+      }
+    }
   }
 
 }
