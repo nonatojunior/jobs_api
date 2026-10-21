@@ -1,4 +1,27 @@
-# API Rest usando Express + Sequelize + TypeScript
+# API de Vagas
+
+Uma API REST desenvolvida com **Node.js, Express, TypeScript, Sequelize e PostgreSQL** para gerenciar candidatos, empresas e oportunidades de trabalho.
+
+## Sobre o projeto
+
+O projeto reúne operações de cadastro e gerenciamento dos principais recursos de uma plataforma de vagas. Candidatos podem ser associados às vagas, enquanto cada vaga pertence a uma empresa. A estrutura separa rotas, controllers, models e arquivos de banco de dados para manter o código organizado.
+
+### Funcionalidades
+
+- Operações CRUD para candidatos, empresas e vagas.
+- Associação e remoção de candidatos em vagas.
+- Relacionamentos entre empresas e vagas e entre vagas e candidatos.
+- Migrations e seeds gerenciados com `sequelize-cli`.
+- Exemplos de requisições no arquivo [`requests.http`](./requests.http), compatível com a extensão REST Client do VS Code.
+
+### Tecnologias
+
+| Tecnologia | Uso |
+| --- | --- |
+| Node.js e Express | Aplicação e rotas HTTP |
+| TypeScript | Tipagem da aplicação |
+| Sequelize | ORM, models e relacionamentos |
+| PostgreSQL | Banco de dados |
 
 ## Comandos
 #### cria projeto e instala as dependências de desenvolvimento
